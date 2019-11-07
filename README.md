@@ -16,7 +16,7 @@ This project has been tested on _Ubuntu 18.04 LTS_.
 
   ```
   sudo apt-get install python3-pip
-  sudo pip3 install --ungrade pip```
+  sudo pip3 install --ungrade pip
   ```
 
 - pyqt5
@@ -43,7 +43,7 @@ sudo python3 iSender.py
 ## Authors
 
 - **Yuran Zhao** - _IP, TCP, ICMP, ARP packet_ - [Yuran-Zhao](https://github.com/Yuran-Zhao)
-- **Hanwen Cao** - UDP packet and UI -  [intrepidChw](https://github.com/intrepidChw)
+- **Hanwen Cao** - _UDP packet and UI_ -  [intrepidChw](https://github.com/intrepidChw)
 
 
 
