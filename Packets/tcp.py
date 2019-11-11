@@ -1,5 +1,6 @@
 import socket
 import struct
+from Utils.utils import Str2Bytes
 
 
 class TCP(object):
@@ -38,7 +39,7 @@ class TCP(object):
             self.urgent_p = 0
         else:
             self.urgent_p = tcpmsg['urgent_pointer']
-        self.option = self.Str2Bytes(tcpmsg['option'])
+        self.option = Str2Bytes(tcpmsg['option'])
         if len(self.option) != 0:
             if len(self.option) % 4 == 0:
                 self.data_off += int(len(self.option) / 4)
@@ -48,43 +49,43 @@ class TCP(object):
         else:
             self.option = str.encode('')
 
-        self.data = self.Str2Bytes(tcpmsg['data'])
+        self.data = Str2Bytes(tcpmsg['data'])
 
-    # convert HEX to int
-    @staticmethod
-    def Convert(character):
-        if character == 'A' or character == 'a':
-            return 10
-        else:
-            if character == 'B' or character == 'b':
-                return 11
-            else:
-                if character == 'C' or character == 'c':
-                    return 12
-                else:
-                    if character == 'D' or character == 'd':
-                        return 13
-                    else:
-                        if character == 'E' or character == 'e':
-                            return 14
-                        else:
-                            if character == 'F' or character == 'f':
-                                return 15
-                            else:
-                                if '0' <= character <= '9':
-                                    return int(character)
+    # # convert HEX to int
+    # @staticmethod
+    # def Convert(character):
+    #     if character == 'A' or character == 'a':
+    #         return 10
+    #     else:
+    #         if character == 'B' or character == 'b':
+    #             return 11
+    #         else:
+    #             if character == 'C' or character == 'c':
+    #                 return 12
+    #             else:
+    #                 if character == 'D' or character == 'd':
+    #                     return 13
+    #                 else:
+    #                     if character == 'E' or character == 'e':
+    #                         return 14
+    #                     else:
+    #                         if character == 'F' or character == 'f':
+    #                             return 15
+    #                         else:
+    #                             if '0' <= character <= '9':
+    #                                 return int(character)
 
-    # convert string to bytes
-    def Str2Bytes(self, data):
-        length = int(len(data) / 2)
-        result = b''
-        for i in range(length):
-            substr = data[i * 2: (i + 1) * 2]
-            num_1 = self.Convert(substr[0])
-            num_2 = self.Convert(substr[1])
-            num = num_1 * 16 + num_2
-            result += struct.pack("!B", num)
-        return result
+    # # convert string to bytes
+    # def Str2Bytes(self, data):
+    #     length = int(len(data) / 2)
+    #     result = b''
+    #     for i in range(length):
+    #         substr = data[i * 2: (i + 1) * 2]
+    #         num_1 = self.Convert(substr[0])
+    #         num_2 = self.Convert(substr[1])
+    #         num = num_1 * 16 + num_2
+    #         result += struct.pack("!B", num)
+    #     return result
 
     # calculate the check sum of header
     @staticmethod

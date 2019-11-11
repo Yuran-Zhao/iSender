@@ -6,12 +6,12 @@ import re
 from PyQt5.QtWidgets import *
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtCore import QStringListModel
-from mainwindow import Ui_iSender
-from ip import IP
-from tcp import TCP
-from udp import UDP
-from arp import ARP
-from icmp import ICMP
+from MainWindow.mainwindow import Ui_iSender
+from Packets.ip import IP
+from Packets.tcp import TCP
+from Packets.udp import UDP
+from Packets.arp import ARP
+from Packets.icmp import ICMP
 OP_REQUEST = 0x0001
 OP_REPLY = 0x0002
 
@@ -625,7 +625,7 @@ class MyWindow(QMainWindow, Ui_iSender):
             QMessageBox.critical(self, 'error', 'Destination Address should be specified!')
             return
         else:
-            ip_list = self.ip_destination_address.text().split('.')
+            ip_list = self.tcp_destination_address.text().split('.')
             if len(ip_list) != 4:
                 QMessageBox.critical(self, 'error in Destination Address', 'There should be 4 integers divided by "." ')
                 return

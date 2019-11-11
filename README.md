@@ -8,7 +8,7 @@ Using this tool, you can send ***IP、TCP、UDP、ICMP、ARP*** packets which co
 
 ## Getting Started
 
-This project has been tested on _Ubuntu 18.04 LTS_.
+This project has been tested on _Ubuntu 18.04 LTS_ and _Ubuntu 18.10_.
 
 #### Prerequisites
 
@@ -16,7 +16,7 @@ This project has been tested on _Ubuntu 18.04 LTS_.
 
   ```
   sudo apt-get install python3-pip
-  sudo pip3 install --ungrade pip
+  sudo pip3 install --upgrade pip
   ```
 
 - pyqt5
